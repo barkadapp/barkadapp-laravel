@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+    color: #163E62;
+}
+
+.title-header{
+    font-size: 2rem;
+    padding: 2vh;
+}
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    margin-top: 6vh;
+}
+
+
+
+.user-form{
+    width: 25%;;
+}
+
+.header{
+    font-size: 20px;
+}
+
+.home-img{
+    width: auto;
+    height: 20rem;
+}
+
+
+.user-button{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-decoration: none;
+
+}
+
+.icon{
+    color: #163E62;
+}
+
+.user-button-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: transparent;
+    border: transparent;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 1rem;
+}
+
+.user-button-btn:hover{
+    cursor: pointer;
+    transition: ease .4s;
+    font-weight: bold;
+    color: #163E62;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* WAVE CSS */
+.custom-shape-divider-bottom-1662909873 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1662909873 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.2px);
+    height: 125px;
+}
+
+.custom-shape-divider-bottom-1662909873 .shape-fill {
+    fill: #163E62;
+}
