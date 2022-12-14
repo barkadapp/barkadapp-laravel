@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('bidding');
-});
+use App\Http\Controllers\barkadappController;
+
+Route::resource('/bidding', barkadappController::class);

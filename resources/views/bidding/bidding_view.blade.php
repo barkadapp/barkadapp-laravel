@@ -17,16 +17,30 @@
 
 <body>
     <div class="main">
-        <form class="bidding-form" action="">
+        <form class="bidding-form" method="POST" action="/bidding">
+            @csrf
             <div class="add-bidding-set">
-                <button class="add-bidding">
+                <input type="text" name="bidding_amount" id="bidding_amount">
+                <button class="add-bidding" >
                     <i class='bx bx-add-to-queue' ></i>
                     Add Bidding
                 </button>
                 <i class='bx bx-trash'></i>
             </div>
 
-            <input class="place-bidding-btn" type="submit" value="Place Bidding">
+            <table>
+                <tbody>
+                    @isset($bidding)
+                        @foreach($bidding as $bid)
+                            <tr>
+                                <th scope='row'>{{ $bid['id']}}</th>
+                                    <td>{{ $bid['bidding_amount'] }}</td>
+                            </tr>
+                    @endisset
+                </tbody>
+            </table>
+
+            <!-- <input class="place-bidding-btn" type="submit" value="Place Bidding"> -->
 
 
         </form>

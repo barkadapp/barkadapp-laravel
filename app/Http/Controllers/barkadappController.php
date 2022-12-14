@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Bidding;
 class barkadappController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class barkadappController extends Controller
      */
     public function index()
     {
-        //
+        return view('bidding.bidding_view',['bidding'=>Bidding::all()]);
     }
 
     /**
@@ -34,7 +34,11 @@ class barkadappController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $grocery = new Bidding;
+        $grocery->bidding_amount = $request->input('bidding_amount');
+        $grocery->save();
+
+        return view('bidding.bidding_view',['bidding'=>Bidding::all()]);
     }
 
     /**
