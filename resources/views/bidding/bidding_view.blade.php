@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url('css/bidding.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
+    <title>Bidding</title>
 </head>
 <header>
     <div class="title-header">
@@ -21,21 +21,23 @@
             @csrf
             <div class="add-bidding-set">
                 <input type="text" name="bidding_amount" id="bidding_amount">
-                <button class="add-bidding" >
-                    <i class='bx bx-add-to-queue' ></i>
+                <button class="add-bidding">
+                    <i class='bx bx-add-to-queue'></i>
                     Add Bidding
                 </button>
-                <i class='bx bx-trash'></i>
             </div>
 
-            <table>
-                <tbody>
-                    @isset($bidding)
-                        @foreach($bidding as $bid)
-                            <tr>
-                                <th scope='row'>{{ $bid['id']}}</th>
-                                    <td>{{ $bid['bidding_amount'] }}</td>
-                            </tr>
+            <table class="bidding-table">
+                <tbody class="table-body">
+                    @isset($biddings)
+                        @foreach($biddings as $bidding)
+                        <tr>
+                            <td>
+                                {{ $bidding['bidding_amount'] }}
+                                <button class="btn"><i class='bx bx-trash'></i></button>
+                            </td>
+                        </tr>
+                        @endforeach
                     @endisset
                 </tbody>
             </table>

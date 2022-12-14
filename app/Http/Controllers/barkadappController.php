@@ -13,7 +13,7 @@ class barkadappController extends Controller
      */
     public function index()
     {
-        return view('bidding.bidding_view',['bidding'=>Bidding::all()]);
+        return view('bidding.bidding_view',['biddings'=>Bidding::all()]);
     }
 
     /**
@@ -34,11 +34,11 @@ class barkadappController extends Controller
      */
     public function store(Request $request)
     {
-        $grocery = new Bidding;
-        $grocery->bidding_amount = $request->input('bidding_amount');
-        $grocery->save();
+        $bidding = new Bidding;
+        $bidding->bidding_amount = $request->input('bidding_amount');
+        $bidding->save();
 
-        return view('bidding.bidding_view',['bidding'=>Bidding::all()]);
+        return view('bidding.bidding_view',['biddings'=>Bidding::all()]);
     }
 
     /**
@@ -83,6 +83,10 @@ class barkadappController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bidding=Bidding::find($id);
+        $bidding->delete();
+
+        return view('bidding.bidding_view',['biddings'=>Bidding::all()]);
+
     }
 }

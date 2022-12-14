@@ -40,9 +40,8 @@
 .bx-trash{
     color: #DF0B0B;
     padding: 10px;
-    font-size: 1.7rem;
-    border-radius: 6px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-size: 1.5rem;
+    border: 1px solid transparent;
 }
 
 .add-bidding{
@@ -67,6 +66,22 @@
     color: #ffff;
 
 }
+.btn{
+    background-color: transparent;
+    border: none;
+    margin-left: 6vh;
+}
+
+.bidding-table{
+    margin-top: 6vh;
+}
+
+.table-body tr td{
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
 /* HOVER EFFECTS */
 
@@ -75,9 +90,11 @@
 }
 
 .bx-trash:hover{
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    transition: ease .3s;
+    transition:.2s;
+    border: 1px solid #DF0B0B;
+    border-radius: 7px;
 }
 
 .place-bidding-btn:hover{
@@ -88,4 +105,5 @@
     color: #163E62;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
 
