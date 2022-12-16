@@ -17,40 +17,54 @@
 
 <body>
     <div class="main">
-        <form class="bidding-form" method="POST" action="/bidding">
-            @csrf
-            <div class="add-bidding-set">
-                <input type="text" name="bidding_amount" id="bidding_amount">
-                <button class="add-bidding">
-                    <i class='bx bx-add-to-queue'></i>
-                    Add Bidding
-                </button>
-            </div>
-
+        <div>
+            <form class="bidding-form" method="POST" action="/bidding">
+                @csrf
+                <div class="add-bidding-set">
+                    <input type="text" name="bidding_amount" id="bidding_amount">
+                    <button class="add-bidding">
+                        <i class='bx bx-add-to-queue'></i>
+                        Add Bidding
+                    </button>
+                </div>
+            </form>
             <table class="bidding-table">
                 <tbody class="table-body">
                     @isset($biddings)
                         @foreach($biddings as $bidding)
-                        <tr>
-                            <td>
+                            <td id={{ $bidding['id'] }}>
                                 {{ $bidding['bidding_amount'] }}
-                                <button class="btn"><i class='bx bx-trash'></i></button>
+                                <button type="button" class="btn"><i class='bx bx-trash'></i></button>
                             </td>
                         </tr>
                         @endforeach
                     @endisset
                 </tbody>
             </table>
-
-            <!-- <input class="place-bidding-btn" type="submit" value="Place Bidding"> -->
-
-
-        </form>
+        </div>
         <img src="/img/party.png" class='home-img'>
-
-
     </div>
-
+    <script>
+        // on btn with bx-trash class click, make a delete request to the /bidding route with the id of its table row in the route
+        const btns = document.querySelectorAll('.btn');
+        btns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                const id = e.target.parentElement.parentElement.id;
+                fetch(`/bidding/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                })
+                .then(res => res.text())
+                .then(data => {
+                    e.target.parentElement.parentElement.remove();
+                })
+            })
+        })
+    </script>
 </body>
 
 

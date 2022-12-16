@@ -17,7 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 6rem;
     margin-top: 6vh;
 }
@@ -30,6 +30,7 @@
     display:flex;
     align-items: center;
     gap: 3vh;
+    max-height: 64px;
 }
 
 .bx-add-to-queue{
@@ -49,11 +50,11 @@
     align-items: center;
     gap: 2vh;
     background-color: #358CDC;
-    padding: 13px 25px;
+    padding: 12px;
     border: 2px solid transparent;
     border-radius: 7px;
     color: #ffff;
-    font-size: 1.6rem;
+    width: 50%;
 }
 
 .place-bidding-btn{
@@ -106,4 +107,10 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-
+#bidding_amount {
+    border: 1px solid #163E62;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 1.2rem;
+    width: 100%;
+}
