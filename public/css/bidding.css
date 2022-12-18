@@ -27,6 +27,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
+    align-items: flex-start;
     gap: 6rem;
     margin-top: 6vh;
 }
@@ -43,6 +44,7 @@
     display: flex;
     align-items: center;
     gap: 3vh;
+    max-height: 64px;
     max-height: 64px;
 }
 
@@ -67,6 +69,7 @@
     border: 2px solid transparent;
     border-radius: 7px;
     color: #ffff;
+    width: 50%;
     width: 50%;
 }
 
