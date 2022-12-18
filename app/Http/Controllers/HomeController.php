@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Bidding;
-class barkadappController extends Controller
+
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class barkadappController extends Controller
      */
     public function index()
     {
-        return view('bidding.bidding_view',['biddings'=>Bidding::all()]);
+        return view('home');
     }
 
     /**
@@ -34,11 +34,7 @@ class barkadappController extends Controller
      */
     public function store(Request $request)
     {
-        $bidding = new Bidding;
-        $bidding->bidding_amount = $request->input('bidding_amount');
-        $bidding->save();
-
-        return view('bidding.bidding_view',['biddings'=>Bidding::all()]);
+        //
     }
 
     /**
@@ -83,13 +79,6 @@ class barkadappController extends Controller
      */
     public function destroy($id)
     {
-        $bidding=Bidding::find($id);
-        $data=[
-            $bidding->delete()
-        ];
-
-
-        return redirect("/bidding",$data);
-
+        //
     }
 }

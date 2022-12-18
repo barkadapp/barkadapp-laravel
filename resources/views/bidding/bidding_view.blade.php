@@ -11,46 +11,85 @@
 </head>
 <header>
     <div class="title-header">
+        <img src="/img/barkadapp logo.png" class='logo-img'>
         BARKADAPP
     </div>
+
+
 </header>
 
 <body>
     <div class="main">
-        <form class="bidding-form" method="POST" action="/bidding">
-            @csrf
-            <div class="add-bidding-set">
-                <input type="text" name="bidding_amount" id="bidding_amount">
-                <button class="add-bidding">
-                    <i class='bx bx-add-to-queue'></i>
-                    Add Bidding
-                </button>
-            </div>
-
+        <div>
+            <form class="bidding-form" method="POST" action="/bidding">
+                @csrf
+                <div class="add-bidding-set">
+                    <input type="text" name="bidding_amount" id="bidding_amount">
+                    <button class="add-bidding">
+                        <i class='bx bx-add-to-queue'></i>
+                        Add Bidding
+                    </button>
+                </div>
+            </form>
             <table class="bidding-table">
                 <tbody class="table-body">
                     @isset($biddings)
-                        @foreach($biddings as $bidding)
-                        <tr>
-                            <td>
-                                {{ $bidding['bidding_amount'] }}
-                                <button class="btn"><i class='bx bx-trash'></i></button>
-                            </td>
-                        </tr>
-                        @endforeach
+                    @foreach($biddings as $bidding)
+                    <td id={{ $bidding['id'] }}>
+                        <input id="{{ $bidding['bidding_amount'] }}" name="bidding_amount" value="{{ $bidding['bidding_amount'] }}" type="radio">
+                        {{ $bidding['bidding_amount'] }}
+                        <button type="button" class="btn"><i class='bx bx-trash'></i></button>
+                    </td>
+                    </tr>
+                    @endforeach
                     @endisset
                 </tbody>
             </table>
+            <input type="submit" onclick="checkButton()" value="Place Bidding" class="place-bidding-btn">
 
-            <!-- <input class="place-bidding-btn" type="submit" value="Place Bidding"> -->
+            <div id="error"></div>
+        </div>
 
-
-        </form>
-        <img src="/img/party.png" class='home-img'>
-
+        <div class="output-display">
+            <div id="disp"> </div>
+            <img src="/img/party.png" class='home-img'>
+        </div>
 
     </div>
+    <script>
+        function checkButton() {
+            var getSelectedValue = document.querySelector(
+                'input[name="bidding_amount"]:checked');
 
+            if (getSelectedValue != null) {
+                document.getElementById("disp").innerHTML = "Nice! You selected " + "Php " + getSelectedValue.value
+
+            } else {
+                document.getElementById("error").innerHTML = "Hey you have not selected any bidding yet!";
+            }
+        }
+    </script>
+    <script>
+        // on btn with bx-trash class click, make a delete request to the /bidding route with the id of its table row in the route
+        const btns = document.querySelectorAll('.btn');
+        btns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                const id = e.target.parentElement.parentElement.id;
+                fetch(`/bidding/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    })
+                    .then(res => res.text())
+                    .then(data => {
+                        e.target.parentElement.parentElement.remove();
+                    })
+            })
+        })
+    </script>
 </body>
 
 

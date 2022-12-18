@@ -8,9 +8,18 @@
     color: #163E62;
 }
 
-.title-header{
+.title-header {
     font-size: 2rem;
     padding: 2vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vh;
+    align-items: center;
+}
+
+.logo-img {
+    width: auto;
+    height: 80px;
 }
 
 .main{

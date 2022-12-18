@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\barkadappController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SelectedBiddingController;
 
 Route::resource('/bidding', barkadappController::class);
+Route::resource('/', HomeController::class);
+
+Route::get('bidding/{id}', 'barkadappController@show');

@@ -1,109 +1,157 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap");
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #163E62;
-    font-family: 'Inter';
+    color: #163e62;
+    font-family: "Inter";
 }
 
-.title-header{
+.title-header {
     font-size: 2rem;
     padding: 2vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vh;
+    align-items: center;
 }
 
-.main{
+.logo-img {
+    width: auto;
+    height: 80px;
+}
+
+.main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 6rem;
     margin-top: 6vh;
 }
 
-.bidding-form{
+.bidding-form {
     display: block;
 }
 
-.add-bidding-set{
-    display:flex;
-    align-items: center;
-    gap: 3vh;
+.form-descrip{
+    margin-bottom: 4vh;
 }
 
-.bx-add-to-queue{
+.add-bidding-set {
+    display: flex;
+    align-items: center;
+    gap: 3vh;
+    max-height: 64px;
+}
+
+.bx-add-to-queue {
     font-size: 1.5rem;
     color: #fff;
 }
 
-.bx-trash{
-    color: #DF0B0B;
+.bx-trash {
+    color: #df0b0b;
     padding: 10px;
     font-size: 1.5rem;
     border: 1px solid transparent;
 }
 
-.add-bidding{
+.add-bidding {
     display: flex;
     align-items: center;
     gap: 2vh;
-    background-color: #358CDC;
-    padding: 13px 25px;
+    background-color: #358cdc;
+    padding: 12px;
     border: 2px solid transparent;
     border-radius: 7px;
     color: #ffff;
-    font-size: 1.6rem;
+    width: 50%;
 }
 
-.place-bidding-btn{
+.place-bidding-btn {
     margin-top: 6vh;
     border-radius: 10px;
-    background-color: #358CDC;
+    background-color: #358cdc;
     padding: 13px 19px;
     border: 2px solid transparent;
     font-size: 1.2rem;
     color: #ffff;
-
 }
-.btn{
+.btn {
     background-color: transparent;
     border: none;
     margin-left: 6vh;
 }
 
-.bidding-table{
+.bidding-table {
     margin-top: 6vh;
 }
 
-.table-body tr td{
+.table-body tr td {
     padding: 10px;
     font-size: 1.2rem;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.output-display{
+    display: block;
+}
+
+
 /* HOVER EFFECTS */
 
-.add-bidding:hover{
+.add-bidding:hover {
     cursor: pointer;
 }
 
-.bx-trash:hover{
+.bx-trash:hover {
     font-size: 1.5rem;
     cursor: pointer;
-    transition:.2s;
-    border: 1px solid #DF0B0B;
+    transition: 0.2s;
+    border: 1px solid #df0b0b;
     border-radius: 7px;
 }
 
-.place-bidding-btn:hover{
+.place-bidding-btn:hover {
     cursor: pointer;
     border: 2px solid transparent;
     background-color: transparent;
-    transition: .3s;
-    color: #163E62;
+    transition: 0.3s;
+    color: #163e62;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+/* JAVASCRIPT ID */
+
+#bidding_amount {
+    border: 1px solid #163e62;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+#disp{
+    margin-top: 5vh;
+    color: #ffff;
+    background-color: #358cdc;
+    padding: 4vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+#error{
+    margin-top: 4vh;
+    color: #df0b0b;
+    padding: 5vh;
+    font-weight: bold;
+    font-style: italic;
+
+}
 

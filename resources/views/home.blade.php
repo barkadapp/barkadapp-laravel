@@ -7,27 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url('css/home.css') }}">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <title>Document</title>
+    <title>BARKADAPP</title>
 </head>
 <header>
     <div class="title-header">
+        <img src="/img/barkadapp logo.png" class='logo-img'>
         BARKADAPP
     </div>
+
 </header>
 
 <body>
     <div class='main'>
         <div class="user-form">
-            <a href="" class="user-button">
+            <a href="{{ URL::to('/bidding'); }}" class="user-button">
                 <button class="user-button-btn">
                     <box-icon class="icon" type='solid' name='edit'></box-icon>
-                    Create
-                </button>
-            </a>
-            <a href="" class="user-button">
-                <button class="user-button-btn">
-                    <box-icon class="icon" name='barcode' type='solid'></box-icon>
-                    Enter Code
+                    Create Bidding
                 </button>
             </a>
 
