@@ -24,7 +24,7 @@
             <form class="bidding-form" method="POST" action="/bidding">
                 @csrf
                 <div class="add-bidding-set">
-                    <input type="text" name="bidding_amount" id="bidding_amount">
+                    <input type="text" name="bidding_amount" id="bidding_amount" placeholder="Enter an amount">
                     <button class="add-bidding">
                         <i class='bx bx-add-to-queue'></i>
                         Add Bidding
@@ -35,11 +35,32 @@
                 <tbody class="table-body">
                     @isset($biddings)
                     @foreach($biddings as $bidding)
-                    <td id={{ $bidding['id'] }}>
-                        <input id="{{ $bidding['bidding_amount'] }}" name="bidding_amount" value="{{ $bidding['bidding_amount'] }}" type="radio">
-                        {{ $bidding['bidding_amount'] }}
-                        <button type="button" class="btn"><i class='bx bx-trash'></i></button>
-                    </td>
+                    <tr id={{ $bidding['id'] }}>
+                        <td>
+                            <div class="td-container">
+                                <div class="paper">
+                                    <div>
+                                        <input id="{{ $bidding['bidding_amount'] }}" name="bidding_amount" value="{{ $bidding['bidding_amount'] }}" type="radio">
+                                        {{ $bidding['bidding_amount'] }}
+                                    </div>
+                                    <button type="button" class="btn"><i class='bx bx-trash'></i></button>
+                                </div>
+                                <div class="paper-content">
+                                    <form action="{{ route('bidding.update', ['bidding' => $bidding['id']]) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <p style="color: gray; margin-bottom: 10px;">Description</p>
+                                        <input class="description-input" type="text" name="description" placeholder="Enter a description"
+                                            value="{{ $bidding['description'] }}"
+                                        >
+                                        <button class="edit-icon-btn" type="submit">
+                                            <i class="bx bxs-save" style="color: white;" ></i>
+                                            <p style="color: white;">Save</p>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     @endforeach
                     @endisset
@@ -75,7 +96,7 @@
         btns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 // const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                const id = e.target.parentElement.parentElement.id;
+                const id = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.id;
                 fetch(`/bidding/${id}`, {
                         method: 'DELETE',
                         headers: {
@@ -85,11 +106,34 @@
                     })
                     .then(res => res.text())
                     .then(data => {
-                        e.target.parentElement.parentElement.remove();
+                        // e.target.parentElement.parentElement.remove();
+                        document.getElementById(id).remove();
                     })
             })
         })
     </script>
+    <!-- <script>
+        const editBtns = document.querySelectorAll('.edit-icon-btn');
+        editBtns.forEach(editBtn => {
+            editBtn.addEventListener('click', (e) => {
+                const id = e.target.parentElement.parentElement.parentElement.parentElement.id;
+                const description = e.target.parentElement.children[1].value;
+
+                fetch(`/bidding/${id}`, {
+                        method: 'PUT',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            description: description
+                        })
+                    })
+                    .then(res => res.text())
+                    .then(_ => {})
+            })
+        })
+    </script> -->
 </body>
 
 

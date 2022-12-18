@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('biddings', function (Blueprint $table) {
             $table->id('id');
-            $table->string('bidding_amount',100);
+            $table->string('bidding_amount', 100);
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

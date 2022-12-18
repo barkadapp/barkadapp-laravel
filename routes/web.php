@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\barkadappController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,13 +11,10 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-use App\Http\Controllers\barkadappController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SelectedBiddingController;
+use Illuminate\Support\Facades\Route;
 
 Route::resource('/bidding', barkadappController::class);
 Route::resource('/', HomeController::class);
-
-Route::get('bidding/{id}', 'barkadappController@show');

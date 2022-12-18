@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap");
 
+table {
+    all: unset;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +33,7 @@
     align-items: flex-start;
     align-items: flex-start;
     gap: 6rem;
-    margin-top: 6vh;
+    margin: 6vh;
 }
 
 .bidding-form {
@@ -42,9 +46,9 @@
 
 .add-bidding-set {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 3vh;
-    max-height: 64px;
     max-height: 64px;
 }
 
@@ -62,6 +66,7 @@
 
 .add-bidding {
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
     gap: 2vh;
     background-color: #358cdc;
@@ -69,8 +74,6 @@
     border: 2px solid transparent;
     border-radius: 7px;
     color: #ffff;
-    width: 50%;
-    width: 50%;
 }
 
 .place-bidding-btn {
@@ -85,14 +88,24 @@
 .btn {
     background-color: transparent;
     border: none;
-    margin-left: 6vh;
 }
 
 .bidding-table {
-    margin-top: 6vh;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-top: 5%;
 }
 
-.table-body tr td {
+.table-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 100%;
+}
+
+tr {
+    width: 100%;
     padding: 10px;
     font-size: 1.2rem;
     border-radius: 10px;
@@ -158,3 +171,59 @@
 
 }
 
+td {
+    display: flex;
+    flex-direction: column;
+}
+
+.paper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.td-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.paper-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    width: 100%;
+}
+
+.description-input {
+    border: 1px solid #163e62;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.edit-icon-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    background-color: #358cdc;
+    padding: 12px;
+    border: 2px solid transparent;
+    border-radius: 7px;
+    color: #ffff;
+    margin-top: 10px;
+}
+
+.edit-icon-btn:hover {
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+    color: #163e62;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.bx {
+    font-size: 26px;
+}
